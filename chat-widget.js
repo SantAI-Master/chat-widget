@@ -892,7 +892,7 @@
             metadata: {
                 userId: email,
                 userName: name,
-                userPhone: phone
+                Phone: phone
             }
         };
 
