@@ -770,7 +770,8 @@
             route: settings.webhook.route,
             metadata: {
                 userId: email,
-                userName: name
+                userName: name,
+                userPhone: phone
             }
         }];
 
@@ -889,7 +890,8 @@
             chatInput: messageText,
             metadata: {
                 userId: email,
-                userName: name
+                userName: name,
+                userPhone: phone
             }
         };
 
