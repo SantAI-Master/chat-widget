@@ -623,6 +623,11 @@
                     <input type="email" id="chat-user-email" class="form-input" placeholder="Your email address" required>
                     <div class="error-text" id="email-error"></div>
                 </div>
+                <div class="form-field">
+                    <label class="form-label" for="chat-user-phone">Phone Number</label>
+                    <input type="tel" id="chat-user-phone" class="form-input" placeholder="e.g. (123) 456-7890" pattern="^\\+?1?\\s*\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$" required>
+                    <div class="error-text" id="phone-error"></div>
+                </div>
                 <button type="submit" class="submit-registration">Continue to Chat</button>
             </form>
         </div>
