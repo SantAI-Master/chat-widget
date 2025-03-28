@@ -737,7 +737,6 @@
         // Get values
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
-        const phone = phoneInput.value.trim();
         
         // Validate
         let isValid = true;
@@ -770,8 +769,7 @@
             route: settings.webhook.route,
             metadata: {
                 userId: email,
-                userName: name,
-                userPhone: phone
+                userName: name
             }
         }];
 
@@ -796,7 +794,7 @@
             const sessionResponseData = await sessionResponse.json();
             
             // Send user info as first message
-            const userInfoMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`;
+            const userInfoMessage = `Name: ${name}\nEmail: ${email}`;
             
             const userInfoData = {
                 action: "sendMessage",
@@ -806,7 +804,6 @@
                 metadata: {
                     userId: email,
                     userName: name,
-                    userPhone: phone
                     isUserInfo: true
                 }
             };
@@ -891,8 +888,7 @@
             chatInput: messageText,
             metadata: {
                 userId: email,
-                userName: name,
-                userPhone: phone
+                userName: name
             }
         };
 
