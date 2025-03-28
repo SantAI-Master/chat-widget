@@ -625,7 +625,7 @@
                 </div>
                 <div class="form-field">
                     <label class="form-label" for="chat-user-phone">Phone Number</label>
-                    <input type="tel" id="chat-user-phone" class="form-input" placeholder="e.g. (123) 456-7890" pattern="^\\+?1?\\s*\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$" required>
+                    <input type="tel" id="chat-user-phone" class="form-input" placeholder="e.g. (123) 456-7890" required>
                     <div class="error-text" id="phone-error"></div>
                 </div>
                 <button type="submit" class="submit-registration">Continue to Chat</button>
@@ -676,13 +676,14 @@
     const sendButton = chatWindow.querySelector('.chat-submit');
     
     // Registration form elements
-    const registrationForm = chatWindow.querySelector('.registration-form');
-    const userRegistration = chatWindow.querySelector('.user-registration');
-    const chatWelcome = chatWindow.querySelector('.chat-welcome');
-    const nameInput = chatWindow.querySelector('#chat-user-name');
-    const emailInput = chatWindow.querySelector('#chat-user-email');
-    const nameError = chatWindow.querySelector('#name-error');
-    const emailError = chatWindow.querySelector('#email-error');
+const registrationForm = chatWindow.querySelector('.registration-form');
+const userRegistration = chatWindow.querySelector('.user-registration');
+const chatWelcome = chatWindow.querySelector('.chat-welcome');
+const nameInput = chatWindow.querySelector('#chat-user-name');
+const emailInput = chatWindow.querySelector('#chat-user-email');
+const nameError = chatWindow.querySelector('#name-error');
+const emailError = chatWindow.querySelector('#email-error');
+const phoneInput = chatWindow.querySelector('#chat-user-phone'); 
 
     // Helper function to generate unique session ID
     function createSessionId() {
@@ -737,6 +738,7 @@
         // Get values
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
         
         // Validate
         let isValid = true;
@@ -769,7 +771,8 @@
             route: settings.webhook.route,
             metadata: {
                 userId: email,
-                userName: name
+                userName: name,
+                phone: phone
             }
         }];
 
@@ -794,7 +797,7 @@
             const sessionResponseData = await sessionResponse.json();
             
             // Send user info as first message
-            const userInfoMessage = `Name: ${name}\nEmail: ${email}`;
+            const userInfoMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`;
             
             const userInfoData = {
                 action: "sendMessage",
@@ -804,6 +807,7 @@
                 metadata: {
                     userId: email,
                     userName: name,
+                    phone: phone,
                     isUserInfo: true
                 }
             };
@@ -888,7 +892,8 @@
             chatInput: messageText,
             metadata: {
                 userId: email,
-                userName: name
+                userName: name,
+                phone: phone
             }
         };
 
