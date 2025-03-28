@@ -806,6 +806,7 @@
                 metadata: {
                     userId: email,
                     userName: name,
+                    userPhone: phone
                     isUserInfo: true
                 }
             };
