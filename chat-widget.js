@@ -737,6 +737,7 @@
         // Get values
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
         
         // Validate
         let isValid = true;
