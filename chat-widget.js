@@ -795,7 +795,7 @@
             const sessionResponseData = await sessionResponse.json();
             
             // Send user info as first message
-            const userInfoMessage = `Name: ${name}\nEmail: ${email}`;
+            const userInfoMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}`;
             
             const userInfoData = {
                 action: "sendMessage",
