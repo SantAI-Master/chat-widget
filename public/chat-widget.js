@@ -884,7 +884,9 @@ const phoneInput = chatWindow.querySelector('#chat-user-phone');
         // Get user info if available
         const email = nameInput ? nameInput.value.trim() : "";
         const name = emailInput ? emailInput.value.trim() : "";
-        
+        const phoneInput = chatWindow.querySelector('#chat-user-phone');
+        const phone = phoneInput ? phoneInput.value.trim() : "";
+
         const requestData = {
             action: "sendMessage",
             sessionId: conversationId,
